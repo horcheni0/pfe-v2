@@ -1,0 +1,92 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: #ecdada; /* Add your desired background color here */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo p {
+    color: #b7ac2f;
+    font-size: 36px; /* Reduce font size for smaller screens */
+    font-weight: 700;
+}
+
+.footer-link {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Reduce gap for smaller screens */
+    color: #1a1a1a;
+    font-size: 18px; /* Reduce font size for smaller screens */
+}
+
+.footer-link li {
+    cursor: pointer;
+}
+
+.footer-social-icon {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-icons-container {
+    padding: 10px;
+    padding-bottom: 6px;
+}
+
+.footer-copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Reduce gap for smaller screens */
+    width: 100%;
+    margin-bottom: 20px; /* Reduce margin for smaller screens */
+    color: #1a1a1a;
+    font-size: 18px; /* Reduce font size for smaller screens */
+}
+
+.footer-copyright hr {
+    width: 80%;
+    border: none;
+    border-radius: 5px; /* Reduce border radius for smaller screens */
+    height: 2px; /* Reduce height for smaller screens */
+    background: #c7c7c7;
+}
+
+/* Media Query for Tablets */
+@media only screen and (max-width: 768px) {
+    .footer-logo p {
+        font-size: 30px;
+    }
+
+    .footer-link {
+        font-size: 16px;
+    }
+
+    .footer-copyright {
+        font-size: 16px;
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+    .footer-logo p {
+        font-size: 24px;
+    }
+
+    .footer-link {
+        font-size: 14px;
+    }
+
+    .footer-copyright {
+        font-size: 14px;
+    }
+}

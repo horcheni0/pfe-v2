@@ -1,0 +1,196 @@
+/* Common Styles */
+
+
+#app {
+    z-index: 100;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    padding-bottom: 2vmin;
+    height: 85vh;
+    width: 100%;
+    background: #e21414;
+    color: #3a3535;
+}
+
+.title {
+    padding-left: 0.5em;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-family: "Prata", serif;
+    font-size: 10vw;
+    width: 100%;
+    z-index: 2;
+}
+
+.title-inner {
+    display: inline-block;
+}
+
+@keyframes text-clip {
+    from {
+        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes outer-left {
+    from {
+        transform: translateX(50%);
+    }
+    to {
+        transform: none;
+    }
+}
+
+@keyframes inner-left {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.cafe,
+.mozart {
+    animation: outer-left 1s 1s cubic-bezier(0.5, 0, 0.1, 1) both;
+}
+
+.title-inner {
+    animation: inner-left 1s 1s ease both;
+}
+
+.cafe-inner {
+    display: inline-block;
+    animation: inner-left 1s 1s ease both, text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+}
+
+.mozart-inner {
+    animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+}
+
+.title {
+    animation: outer-left 1s 1s ease both;
+}
+
+.cafe > .cafe-inner {
+    display: inline-block;
+}
+
+.mozart {
+    display: inline-block;
+}
+
+.image {
+    grid-row: 1;
+    grid-column: 2;
+    margin-left: -2rem;
+    opacity: 0.7;
+    animation: image-in 1s cubic-bezier(0.5, 0, 0.1, 1) 2s backwards;
+}
+
+@keyframes image-in {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+.image img {
+    display: block;
+    width: 94%; /* This might cause unexpected behavior */
+    height: auto;
+}
+
+@media screen and (max-width: 100px) {
+    .image img {
+        display: block;
+        width: 100%; /* Adjusting width for better responsiveness */
+        
+        height: 80%;
+        /* Other styles specific to screens with a max-width of 1px */
+    }
+}
+
+
+
+
+
+
+
+
+@keyframes tipsy {
+    0% {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+
+.hero-link {
+    color: #fffbf1;
+    text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+    font-size: 80px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: -3px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.hero-link:before,
+.hero-link:after {
+    content: '';
+    padding: 0.9em 0.4em;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    top: 50%;
+    display: block;
+    border: 15px solid red;
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    animation: 10s infinite alternate ease-in-out tipsy;
+}
+
+.hero-link:before {
+    border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    z-index: -1;
+}
+
+.hero-link:after {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
+    box-shadow: 25px 25px 25px rgba(46, 46, 49, 0.8);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1px) {
+    /* Adjustments for smaller screens */
+    .title {
+        font-size: 8vw;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    /* Further adjustments for smaller screens */
+    .title {
+        font-size: 100vw;
+    }
+
+    .hero-link {
+        font-size: 60px;
+    }
+
+    .hero-link:before,
+    .hero-link:after {
+        border-width: 10px;
+    }
+}
